@@ -1,0 +1,143 @@
+.ConteneurPlayer{
+   background-color: aquamarine;
+   width : 1280px;
+}
+ 
+.playerCar {
+    /* padding-left: 500px; */
+    height : 280px;
+    width : 800px;
+    overflow : hidden;
+  
+}
+
+.imgcar{
+   float:left;
+   position : fixed;
+   margin-left :1280px;
+   height : auto;
+   width : 180px;
+   border-radius: 10px;
+   z-index : 0;
+   /* visibility: hidden; */
+} 
+
+.imagcar:target{
+   visibility: visible;
+}
+
+.repaire{
+   width : 5px;
+   border-radius: 5px;
+   background-color: rgb(238, 8, 8);
+   margin-left : 637px;
+   height : 270px;
+   position : fixed;
+   z-index: 2;
+}
+
+.conseil{
+   text-align: center;
+   font-weight: bold ;
+   margin-bottom: 15px;
+}
+
+.blockajouer{
+   height : 252px;
+   width : 180px;
+   margin-left : 420px;
+   border : solid 5px rgb(55, 134, 72);
+   border-radius: 5px;
+   position : fixed;
+   z-index: 2;
+}
+
+.content{
+   width: 1280px;
+}
+
+.counter{
+   font-size: 50px;
+   margin-top: -200px;
+   margin-left: 150px;
+}
+
+.playerOption{
+   width : 400px;
+   border-radius: 5px;
+   height : 40px;
+   display : flex;
+   justify-content: center;
+   align-items: center;
+   margin-left: 400px;
+   background-color: rgb(194, 160, 98);
+   -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+   box-shadow: 5px 5px 15px 5px #000000;
+}
+
+.icon-play , .icon-pause, .icon-to-start, .icon-undo{
+   display : flex;
+   vertical-align: middle;
+   cursor: pointer;
+   margin : 0px;
+   height : 35px;
+   width : 35px;
+   border-radius: 50%;
+   font-size: 35px;
+   color : black;
+}
+
+.icon-play:hover, .icon-pause:hover, .icon-to-start:hover, .icon-undo:hover{
+  color :rgb(220, 220, 220);
+}
+
+.icon-play:active, .icon-pause:active, .icon-to-start:active, .icon-undo:active{
+   font-size: 35px;
+   height : 35px;
+   width : 35px;
+}
+
+select{
+   background-color: rgb(135, 112, 69);
+   border-radius: 5px;
+   border : black 10px;
+   color : white;
+   height : 35px;
+   margin-left : 10px;
+}
+
+.boutonPLay{
+   border-radius: 10px;
+   border : 0px;
+   color: white;
+   background: rgb(37,128,46);
+   background: radial-gradient(circle, rgba(37,128,46,1) 0%, rgba(7,65,7,1) 100%);
+   width : 100px;
+   height : 40px;
+}
+
+.boutonPLay:hover{
+   box-shadow: inset 4px 4px 15px 0px #000000;
+}
+
+.boutonPLay:active{
+  border : 3px solid rgb(17, 87, 7);
+}
+
+.boutonStop{
+   border-radius: 10px;
+   border : 0px;
+   color: white;
+   background: rgb(128,37,37);
+   background: radial-gradient(circle, rgba(128,37,37,1) 0%, rgba(65,7,7,1) 100%);
+   width : 100px;
+   height : 40px;
+}
+
+.boutonStop:hover{
+   box-shadow: inset 4px 4px 15px 0px #000000;
+}
+
+.boutonStop:active{
+   border : 3px solid rgb(87, 7, 7);
+}

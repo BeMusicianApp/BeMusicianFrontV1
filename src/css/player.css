@@ -1,0 +1,14 @@
+.playerMain{
+    background-color: #202327 ;
+    color : white;
+} 
+.playerSecond{
+    background-color: #202327 ;
+    width : 1280px;
+    margin : 0px;
+    height : 40px;
+    color : white;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
