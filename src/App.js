@@ -33,8 +33,10 @@ const App = () => {
             <Route path="/account/validation" element={<ValidationScreen />}/>
             {auth.role === 0 &&<Route path="/login" element={<LoginScreen />}/>}
             {auth.role === 0 &&<Route path="/renewpass" element={<RenewPassWordScreen />}/>}
+            {auth.role === 0 &&<Route path="/" element={<LoginScreen />}/>}
             {auth.role === 0 &&<Route path="/renewmail" element={<RenewMailScreen />}/>}
             {auth.role === 1 &&<Route path="/" element={<BaseScreen />}>
+              
             <Route index element={<HomeScreen />} />
             {auth.role === 1 && <Route path="/profil" element={<ProfilScreen />} />}
             {auth.role===1 && <Route path="/admin" element={<AdminScreen/>}/>}

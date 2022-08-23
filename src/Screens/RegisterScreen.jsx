@@ -46,34 +46,31 @@ const RegisterScreen = () => {
     <>
       <div className="authscreen">
         <div className="capsform">
+        <div className="titleform">
+          <h1>Enregistrement</h1>
+        </div>
           <form onSubmit={handleSubmit}>
             <div className="fieldForm">
-              <label htmlFor="exampleInputEmail1" className="form-label">Nom</label>
-              <input type="text" name="nom" className="inputauth" id="inputNom" aria-describedby="NomHelp" />
+              <input type="text" name="nom" className="inputauth" id="inputNom" aria-describedby="NomHelp" placeholder="Votre Nom" />
             </div>
             <div className="fieldForm">
-              <label htmlFor="exampleInputEmail2" className="form-label">Prénom</label>
-              <input type="text" name="prenom" className="inputauth" id="inputPrenom" aria-describedby="prenomHelp" />
+              <input type="text" name="prenom" className="inputauth" id="inputPrenom" aria-describedby="prenomHelp" placeholder="Votre Prénom" />
             </div>
             <div className="fieldForm">
-              <label htmlFor="exampleInputEmail3" className="form-label">Pseudo</label>
-              <input type="text" name="pseudo" className="inputauth" id="inputPseudo" aria-describedby="pseudoHelp" />
+              <input type="text" name="pseudo" className="inputauth" id="inputPseudo" aria-describedby="pseudoHelp" placeholder="Votre Pseudo"/>
             </div>
             <div className="fieldForm">
-              <label htmlFor="exampleInputEmail4" className="form-label">Email address</label>
-              <input type="email" name="email" className="inputauth" id="InputEmail" aria-describedby="emailHelp" />
+              <input type="email" name="email" className="inputauth" id="InputEmail" aria-describedby="emailHelp" placeholder="Votre adresse e-mail"/>
             </div>
             <div className="fieldForm">
-              <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-              <input type="password" name="password" className="inputauth" id="InputPasswordReg1" />
+              <input type="password" name="password" className="inputauth" id="InputPasswordReg1" placeholder="Votre mot de passe"/>
             </div>
             <div className="fieldForm">
-              <label htmlFor="exampleInputPassword2" className="form-label">Password</label>
-              <input type="password" name="password" className="inputauth" id="InputPasswordReg2" placeholder=""/>
+              <input type="password" name="password" className="inputauth" id="InputPasswordReg2" placeholder="Repeter votre mot de passe"/>
             </div>
             <div className="buttonform">
-              <Link to="/login"> <button className="submit">log in</button></Link>
-              <button type="submit" className="submit">Sign in</button>
+              <Link to="/login"> <button className="BasicButton">Se connecter</button></Link>
+              <button type="submit" className="BasicButton">S'inscrire</button>
             </div>
           </form>
         </div>

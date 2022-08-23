@@ -1,4 +1,5 @@
 import "../css/formulaire.css";
+import "../css/default.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -43,27 +44,28 @@ const LoginScreen = () => {
   return (
     <>
       <div className="authscreen">
-          <div className="capsform">
-        <form onSubmit={handleSubmit}>
-          <div className="fieldForm">
-            <label htmlFor="exampleInputEmail6" className="form-label">Email address</label>
-            <input type="text" name="email"className="inputauth" id="InputEmail" aria-describedby="emailHelp" />
-          </div>
-          <div className="fieldForm">
-            <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-            <input type="password" name="password" className="inputauth" id="exampleInputPassword1" />
-          </div>
-          <div className="buttonform">
-            <button type="submit" className="submit">log in</button>
-            <Link to="/register"> <button className="submit">Sign in</button></Link>
-          </div>
-          <div className="fieldForm">
-            <div className="forgotpass">
-             <Link to="/renewmail"> forgot your password ?</Link>
+        <div className="capsform">
+          <div className="titleform">
 
-            </div>           
+          <h1>Connexion</h1>
           </div>
-        </form>
+          <form onSubmit={handleSubmit}>
+            <div className="fieldForm">
+              <input type="text" name="email"className="inputauth" id="InputEmail" aria-describedby="emailHelp"  placeholder="Votre adresse e-mail"/>
+            </div>
+            <div className="fieldForm">
+              <input type="password" name="password" className="inputauth" id="exampleInputPassword1" placeholder="Votre mot de passe"/>
+            </div>
+            <div className="buttonform">
+              <button type="submit" className="BasicButton">Se Connecter</button>
+              <Link to="/register"> <button className="BasicButton">S'inscrire</button></Link>
+            </div>
+            <div className="fieldForm">
+              <div className="forgotpass">
+              <Link to="/renewmail"> mot de passe oublié ?</Link>
+              </div>           
+            </div>
+          </form>
         </div>
       </div>
 

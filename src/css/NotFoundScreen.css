@@ -1,0 +1,15 @@
+#ContentNotfoundScreen{
+    display : flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center 
+      
+}
+#ContentItemNotFoundScreen{
+    display : flex;
+}
+.itemNotFoundScreen{
+    margin: 10px;
+}

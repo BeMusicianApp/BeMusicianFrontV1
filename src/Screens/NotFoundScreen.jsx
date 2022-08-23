@@ -1,11 +1,33 @@
 import { Link } from "react-router-dom";
+import "../css/default.css";
+import "../css/NotFoundScreen.css";
 
 const NotFoundScreen = () =>{
     return (
-        <div>
-            <h1>Oops Houston je croit qu'on a un problème</h1>
-            <Link to="/login">Clique sur moi pour te connecter ou te creer un compte :)</Link><br/>
-            <Link to="/">Clique sur moi pour revenir sur la page d'acceuil</Link>
+        <div id="ContentNotfoundScreen">
+            <div>
+            <h1>On veut aller plus vite que la musique ?</h1>
+            </div>
+                <div id='ContentItemNotFoundScreen'>
+                <div className="itemNotFoundScreen">
+                    <div className="TextDefault">
+                        Pas encore de compte ?
+                    </div>
+                <Link to="/register"><button className='BasicButton'>S'incrire</button></Link>
+                </div>
+                <div className="itemNotFoundScreen">
+                    <div className="TextDefault">
+                        Tu es déjà inscrit ?
+                    </div>
+                <Link to="/login"><button className='BasicButton'>Se connecter</button></Link>
+                </div>
+                <div className="itemNotFoundScreen">
+                    <div className="TextDefault">
+                        Aucune idée de ce que je fais là ?
+                    </div >
+                    <Link to="/"><button className='BasicButton'>Retour Page d'acceuil</button></Link>
+                </div>
+            </div>
         </div>
     );
 };
