@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/authContext";
-import "../css/navigation.css";
+import "../css/header.css";
 
 const Header = () => {
     const { auth } = useContext(AuthContext);
@@ -19,7 +19,7 @@ const Header = () => {
                         {auth.role === 1 && (
                             <Link to="/profil" className="navitem" id="profil">Profil</Link>               
                         )}
-                        {auth.role === 1 && (
+                        {auth.role === 2 && (
                             <Link to="/admin" className="navitem" id="choixinstrument">admin</Link>
                         )}
                             {auth.role === 1 && (

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "../css/player.css";
-import { Caroussel } from "../Components/caroussel";
+import { Caroussel } from "../Components/player";
 import {Fetchmusique} from "../Components/fetchmusique"
 import { Accord } from "../Models/accord.model";
 

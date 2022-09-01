@@ -39,7 +39,7 @@ const App = () => {
               
             <Route index element={<HomeScreen />} />
             {auth.role === 1 && <Route path="/profil" element={<ProfilScreen />} />}
-            {auth.role===1 && <Route path="/admin" element={<AdminScreen/>}/>}
+            {auth.role===2 && <Route path="/admin" element={<AdminScreen/>}/>}
             {auth.role === 1 && <Route path="/choixinstrument" element={<ChoixInstrumentScreen />} />}
             {auth.role === 1 && <Route path="/creation" element={<CreationScreen />} />}
             {auth.role === 1 && <Route path="/guitare" element={<GuitareScreen />} />}
@@ -48,7 +48,7 @@ const App = () => {
             <Route path="/presentation" element={<PresentationScreen />} />
             <Route path="/explication" element={<ExplicationScreen />} />
           </Route>}
-            <Route path="*" element={<NotFoundScreen />} />
+          <Route path="*" element={<NotFoundScreen />} />
         </Routes>
       </BrowserRouter>
     </>
