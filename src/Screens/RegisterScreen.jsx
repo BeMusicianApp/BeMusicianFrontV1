@@ -69,11 +69,11 @@ const RegisterScreen = () => {
               <input type="password" name="password" className="inputauth" id="InputPasswordReg2" placeholder="Repeter votre mot de passe"/>
             </div>
             <div className="buttonform">
-              <Link to="/login"> <button className="BasicButton">Se connecter</button></Link>
               <button type="submit" className="BasicButton">S'inscrire</button>
             </div>
           </form>
         </div>
+             <div id="connect"> <Link to="/login"> <button className="BasicButton">Se connecter</button></Link></div>
       </div>
     </>
   )

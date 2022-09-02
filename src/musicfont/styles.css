@@ -68,3 +68,90 @@
 .icon-repeat:before {
   content: "\6b";
 }
+.icon-heart-o:before {
+  content: "\61";
+}
+.icon-heart:before {
+  content: "\6c";
+}
+.icon-sort-amount-asc:before {
+  content: "\6d";
+}
+.icon-sort-alpha-asc:before {
+  content: "\6e";
+}
+.icon-sort-alpha-desc:before {
+  content: "\6f";
+}
+.icon-sort-amount-desc:before {
+  content: "\70";
+}
+.icon-thumbs-up:before {
+  content: "\71";
+}
+.icon-thumbs-o-up:before {
+  content: "\72";
+}
+.icon-user:before {
+  content: "\73";
+}
+.icon-trash:before {
+  content: "\74";
+}
+.icon-trash-o:before {
+  content: "\75";
+}
+.icon-note-beamed:before {
+  content: "\76";
+}
+.icon-plus:before {
+  content: "\77";
+}
+.icon-search:before {
+  content: "\78";
+}
+.icon-mute:before {
+  content: "\79";
+}
+.icon-playback-fast-forward:before {
+  content: "\7a";
+}
+.icon-playback-pause:before {
+  content: "\41";
+}
+.icon-playback-play:before {
+  content: "\42";
+}
+.icon-playback-rewind:before {
+  content: "\43";
+}
+.icon-jump-left:before {
+  content: "\44";
+}
+.icon-jump-right:before {
+  content: "\45";
+}
+.icon-primitive-square:before {
+  content: "\46";
+}
+.icon-git-compare:before {
+  content: "\47";
+}
+.icon-mail-reply:before {
+  content: "\48";
+}
+.icon-pulse:before {
+  content: "\49";
+}
+.icon-home:before {
+  content: "\4a";
+}
+.icon-cloud-upload:before {
+  content: "\4b";
+}
+.icon-cloud-download:before {
+  content: "\4c";
+}
+.icon-sign-out:before {
+  content: "\4d";
+}

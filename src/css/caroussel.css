@@ -4,11 +4,9 @@
 }
  
 .playerCar {
-    /* padding-left: 500px; */
     height : 280px;
     width : 800px;
     overflow : hidden;
-  
 }
 
 .imgcar{
@@ -63,81 +61,74 @@
 }
 
 .playerOption{
-   width : 400px;
    border-radius: 5px;
-   height : 40px;
+   height : 50px;
    display : flex;
    justify-content: center;
    align-items: center;
-   margin-left: 400px;
-   background-color: rgb(255,110,0,1);
+   background-color: rgb(204, 204, 204);
    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
    box-shadow: 5px 5px 15px 5px #000000;
 }
 
-.icon-play , .icon-pause, .icon-to-start, .icon-undo{
-   display : flex;
-   vertical-align: middle;
-   cursor: pointer;
-   margin : 0px;
-   height : 35px;
-   width : 35px;
-   border-radius: 50%;
-   font-size: 35px;
-   color : black;
+.playerOption i{
+   margin: 0px;
+   color: black;
+   margin-top: 8px;
+   font-size: 30px;
+   /* -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both; */
+
+}
+ 
+.playerOption i:hover{
+   color : rgb(116, 116, 116);
+   text-shadow: none;
+ 
 }
 
-.icon-play:hover, .icon-pause:hover, .icon-to-start:hover, .icon-undo:hover{
-  color :rgb(220, 220, 220);
+.playerOption i:active{
+   color : rgb(116, 116, 116);
+   -webkit-animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
-
-.icon-play:active, .icon-pause:active, .icon-to-start:active, .icon-undo:active{
-   font-size: 35px;
-   height : 35px;
-   width : 35px;
+@-webkit-keyframes scale-up-center {
+   0% {
+     -webkit-transform: scale(1);
+             transform: scale(1);
+   }
+   50% {
+     -webkit-transform: scale(0.5);
+             transform: scale(0.5);
+   }
+   100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+}
+ @keyframes scale-up-center {
+   0% {
+     -webkit-transform: scale(1);
+             transform: scale(1);
+   }
+   50% {
+     -webkit-transform: scale(0.5);
+             transform: scale(0.5);
+   }
+   100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
 }
 
 select{
-   background-color: rgb(135, 112, 69);
+   background-color: rgb(187, 187, 187);
    border-radius: 5px;
    border : black 10px;
-   color : white;
+   color : rgb(0, 0, 0);
    height : 35px;
    margin-left : 10px;
+   padding : 2px;
 }
 
-.boutonPLay{
-   border-radius: 10px;
-   border : 0px;
-   color: white;
-   background: rgb(37,128,46);
-   background: radial-gradient(circle, rgba(37,128,46,1) 0%, rgba(7,65,7,1) 100%);
-   width : 100px;
-   height : 40px;
-}
 
-.boutonPLay:hover{
-   box-shadow: inset 4px 4px 15px 0px #000000;
-}
-
-.boutonPLay:active{
-  border : 3px solid rgb(17, 87, 7);
-}
-
-.boutonStop{
-   border-radius: 10px;
-   border : 0px;
-   color: white;
-   background: rgb(128,37,37);
-   background: radial-gradient(circle, rgba(128,37,37,1) 0%, rgba(65,7,7,1) 100%);
-   width : 100px;
-   height : 40px;
-}
-
-.boutonStop:hover{
-   box-shadow: inset 4px 4px 15px 0px #000000;
-}
-
-.boutonStop:active{
-   border : 3px solid rgb(87, 7, 7);
-}

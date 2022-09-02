@@ -43,10 +43,10 @@ const LoginScreen = () => {
 
   return (
     <>
+       <div id="connect"> <Link to="/register"> <button className="BasicButton">S'inscrire</button></Link></div>
       <div className="authscreen">
         <div className="capsform">
           <div className="titleform">
-
           <h1>Connexion</h1>
           </div>
           <form onSubmit={handleSubmit}>
@@ -58,7 +58,6 @@ const LoginScreen = () => {
             </div>
             <div className="buttonform">
               <button type="submit" className="BasicButton">Se Connecter</button>
-              <Link to="/register"> <button className="BasicButton">S'inscrire</button></Link>
             </div>
             <div className="fieldForm">
               <div className="forgotpass">
