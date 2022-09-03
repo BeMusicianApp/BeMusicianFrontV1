@@ -27,7 +27,7 @@
 .repaire{
    width : 5px;
    border-radius: 5px;
-   background-color: rgb(238, 8, 8);
+   background-color: rgb(180, 179, 179);
    margin-left : 637px;
    height : 270px;
    position : fixed;
@@ -75,10 +75,7 @@
    margin: 0px;
    color: black;
    margin-top: 8px;
-   font-size: 30px;
-   /* -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both; */
-
+   font-size: 35px;
 }
  
 .playerOption i:hover{

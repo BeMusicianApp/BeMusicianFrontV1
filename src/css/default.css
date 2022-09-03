@@ -26,7 +26,7 @@ a{
     margin: 10px;
 	
 }
-.BasicButton , .titleform{
+.BasicButton{
     background: linear-gradient(90deg, rgba(255,189,0,1), rgba(255,110,0,1));
     background-size: 400% 400%;
     -webkit-animation: nanim 8s ease infinite;

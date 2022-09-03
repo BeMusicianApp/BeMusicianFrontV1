@@ -10,7 +10,7 @@ const Header = () => {
             <div className="navigation">
                     <nav className="contentLogo">
                         {auth.role === 1 && (
-                        <Link to="/" className="logo"><img id="logo" src={process.env.PUBLIC_URL + '/img/site/logosquarewhite.png'}></img></Link>
+                        <Link to="/" className="logo"><img id="logoHeader" src={process.env.PUBLIC_URL + '/img/site/logosquarewhite.png'}></img></Link>
                         )}
                         </nav>
                         <nav className="mainNav">
