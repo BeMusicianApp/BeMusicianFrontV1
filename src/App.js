@@ -11,6 +11,7 @@ import LoginScreen from './Screens/LoginScreen';
 import RegisterScreen from './Screens/RegisterScreen';
 import ExplicationScreen from './Screens/ExplicationScreen';
 import PresentationScreen from './Screens/PresentationScreen';
+
 import GuitareScreen from './Screens/GuitareScreen';
 import PlayScreen from './Screens/PlayScreen';
 import CreationScreen from './Screens/creationScreen';
@@ -22,11 +23,15 @@ import RenewMailScreen from './Screens/renewMailScreen';
 import AdminScreen from './Screens/admin.screen';
 
 
+
 const App = () => {
   const { auth } = useContext(AuthContext);
 
   return (
+    
     <>
+    
+    
       <BrowserRouter>
         <Routes>
             {auth.role === 0 &&<Route path="/register" element={<RegisterScreen />}/>}
@@ -42,15 +47,22 @@ const App = () => {
             {auth.role===2 && <Route path="/admin" element={<AdminScreen/>}/>}
             {auth.role === 1 && <Route path="/choixinstrument" element={<ChoixInstrumentScreen />} />}
             {auth.role === 1 && <Route path="/creation" element={<CreationScreen />} />}
+           
             {auth.role === 1 && <Route path="/guitare" element={<GuitareScreen />} />}
+            
             {auth.role === 1 && <Route path="/play" element={<PlayScreen />} />}
             {auth.role === 1 && <Route path="/logout" element={<LogoutScreen />} />}
             <Route path="/presentation" element={<PresentationScreen />} />
             <Route path="/explication" element={<ExplicationScreen />} />
+           
           </Route>}
+          
+         
           <Route path="*" element={<NotFoundScreen />} />
         </Routes>
+        
       </BrowserRouter>
+      
     </>
   );
 }
