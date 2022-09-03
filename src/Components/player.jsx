@@ -304,10 +304,10 @@ export function Caroussel(props){
                     </div>
                 </div>
                 <div className="playerOption">
-                    <div class="icon-undo" onClick={reset}></div>
-                    <div class="play"><i  class="icon-play" onClick={start}></i></div>
-                    <div class="icon-pause" onClick={pause}></div>
-                    <select id="selectDifficulty" onchange={pause}>
+                    <i class="icon-primitive-square" onClick={reset}></i>
+                    <i class="icon-playback-play" onClick={start}></i>
+                    <i class="icon-playback-pause" onClick={pause}></i>
+                <select id="selectDifficulty" onchange={pause}>
                         <option value="1" className="bpmOption" onSelect={pause}>Official Bpm -30</option>
                         <option value="2" className="bpmOption" onClick={pause}>Official Bpm -20</option>
                         <option value="3" className="bpmOption" onChange={pause}>Official Bpm -10</option>
