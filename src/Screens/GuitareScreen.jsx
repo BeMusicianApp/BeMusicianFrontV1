@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Search from '../Components/Search';
+import "../css/search.css";
 
 const GuitareScreen = () => {
     const [title, setTitle] = useState();
@@ -27,7 +29,14 @@ const GuitareScreen = () => {
 
     return (
     <>
-        <div className="container-fluid">
+
+    <div>
+        
+        
+        <Search/>
+
+    </div>
+        {/* <div className="container-fluid">
         <div className="row">
         <div className="col-12 bg-success justify-content-center">          
              <Link to="/play" className="text-light" > 
@@ -73,7 +82,7 @@ const GuitareScreen = () => {
             </ul>
             </div>
         </div>
-        </div>
+        </div> */}
     </>
     );
 };
