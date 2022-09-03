@@ -10,7 +10,8 @@ function Search() {
             <div className="Search">
            
            
-                <input 
+                <input
+                id="inputSearch" 
                 type="text" 
                 name="searchBar" 
                 placeholder='rechercher' />
