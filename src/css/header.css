@@ -58,7 +58,6 @@ i:hover{
         animation-delay: 3s;
         animation-duration: 6s;
         animation-iteration-count: infinite;
-
 }
 
 @-webkit-keyframes slide-top {

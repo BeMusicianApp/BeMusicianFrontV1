@@ -152,7 +152,7 @@ input:focus{
     50%{background-position:100% 55%}
     100%{background-position:0% 46%}
 }
-.icon-envelope:hover , .icon-key:hover, .icon-user:hover{
+.icon-envelope:hover , .icon-key:hover, #icon-user:hover{
     text-shadow: none;
     color : white;
 }
