@@ -32,8 +32,6 @@ const GuitareScreen = () => {
                     titlemusique.addEventListener("click", select);
                     document.getElementById("musiqueList").appendChild(titlemusique);
                 })
-        
-
             setTitle({
                 tabTitle,
             })

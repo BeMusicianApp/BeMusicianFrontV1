@@ -7,8 +7,7 @@ import "../musicfont/styles.css";
 
 
 export function Caroussel(props){
-    let localdata = sessionStorage.getItem('idlocal')
-    console.log("id local : ", localdata);
+    
     const { img } = props;
     const [loadingState, setLoadingState] = useState('loading');
     console.log("entre les usestate")
@@ -16,7 +15,8 @@ export function Caroussel(props){
     const [tabLinkAcc, setTabLinkAcc] = useState([]);
     const [startBtn, setStartBtn] = useState();
     const [session, setSession] = useState({ state: 'loading', tabLinkAcc: [], })
-
+    
+    let localdata = sessionStorage.getItem('idlocal')
     useEffect(() => {
         const fetchData = async () => {
             console.log("fetch")
