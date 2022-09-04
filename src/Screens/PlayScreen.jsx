@@ -6,11 +6,13 @@ import { Accord } from "../Models/accord.model";
 
 const PlayScreen = () => {
 
+    let localdataName = sessionStorage.getItem('nameLocal');
+    console.log("name : ",localdataName)
 
     return ( 
         <>
         <div className="playerMain">
-            <div className="playerSecond">{}</div> 
+            <div className="playerSecond">{localdataName}</div> 
             <div className="conseil">A vous de jouer ! <br />
                     attendre que l'accord soit arrivé dans le cadre pour jouer
             </div>

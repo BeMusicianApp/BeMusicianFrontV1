@@ -41,7 +41,9 @@ const GuitareScreen = () => {
 
 function select(){
     let musiqueCliquer = document.activeElement.id;
-    sessionStorage.setItem("idlocal", musiqueCliquer); 
+    let musiquecliquername = document.activeElement.title
+    sessionStorage.setItem("idlocal", musiqueCliquer);
+    sessionStorage.setItem("nameLocal", musiquecliquername); 
 }
     //todo tmusique sur le onClick et importe le authprovider
 
