@@ -10,7 +10,10 @@ const PlayScreen = () => {
     return ( 
         <>
         <div className="playerMain">
-                <div className="playerSecond">{}</div> 
+            <div className="playerSecond">{}</div> 
+            <div className="conseil">A vous de jouer ! <br />
+                    attendre que l'accord soit arrivé dans le cadre pour jouer
+            </div>
                 <Caroussel/>
         </div>
         </>

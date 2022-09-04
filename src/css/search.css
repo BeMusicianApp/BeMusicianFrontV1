@@ -30,3 +30,19 @@ display:flex
     outline: none;
     border : solid rgb(rgba(255, 255, 255, 0.355));
 }
+#musiqueList{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    width : 400px;
+    /* background-color : rgba(255, 255, 255, 0.355); */
+    text-align : center;
+}
+#musiqueList a{
+    color : white;
+    padding : 2px;
+    border : 1px solid rgba(255,189,0,1);
+}
+#musiqueList a:hover{
+    color : rgba(255,189,0,1);
+}

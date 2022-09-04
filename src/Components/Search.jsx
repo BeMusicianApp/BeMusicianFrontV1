@@ -3,19 +3,13 @@ import React from 'react'
 
 function Search() {
     return (
-
         <>
-        
-        
             <div className="Search">
-           
-           
                 <input
                 id="inputSearch" 
                 type="text" 
                 name="searchBar" 
-                placeholder='rechercher' />
-                
+                placeholder='rechercher'/>     
             </div>
             
             

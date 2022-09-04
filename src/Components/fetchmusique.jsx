@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function Fetchmusique() {
+function Fetchmusique() {
 
 const [title, setTitle] = useState();
 
@@ -22,3 +22,4 @@ const [title, setTitle] = useState();
     })
 
 }
+export default Fetchmusique;

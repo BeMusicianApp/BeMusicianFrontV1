@@ -1,6 +1,10 @@
 .playerMain{
     background-color: #202327 ;
     color : white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
 } 
 .playerSecond{
     background-color: #202327 ;
