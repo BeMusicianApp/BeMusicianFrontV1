@@ -29,4 +29,5 @@ input::placeholder{
 input:focus{
     outline: none;
     border : solid rgb(rgba(255, 255, 255, 0.355));
+    
 }
