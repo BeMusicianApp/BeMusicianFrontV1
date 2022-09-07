@@ -1,25 +1,21 @@
-import React from 'react'
+import React from "react";
+import "../css/search.css";
 
 
 function Search() {
-    return (
-        <>
-            <div className="Search">
+  return (
+    <>
+
+         <div className="search">
+          <i class="icon-search"></i>
                 <input
                 id="inputSearch" 
                 type="text" 
-                name="searchBar" 
-                placeholder='rechercher'/>     
-            </div>
-            
-            
-            <div className='search__Results'>
-                <div className="search__Result">
-
-                </div>
-            </div>
-        </>
-    )
+                placeholder='rechercher'/>               
+       </div>
+     
+    </>
+  );
 }
 
 export default Search;
