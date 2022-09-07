@@ -1,33 +1,62 @@
-.Search{
-display:flex
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    
+    
+   
+
 }
 
-input{
+.icon-search{
+    border: 0px 0px 100px 0px solid;
+    border-left:solid rgba(255, 255, 255, 0.119);
+    border-bottom:solid rgba(255, 255, 255, 0.119);
+
+}
+
+#inputSearch{
     background-color : rgba(24, 24, 24, 0);
     border : solid rgba(255, 255, 255, 0.119);
 
     border-top: none;
     border-right : none;
-    /* border-left: none; */
+    border-left: none;
 
     color : white;
     padding: 12px 10px;
     height : 40px;
-    width : 350px;
-    margin-left : auto;
-    margin-right: auto;
-    margin-top: 50px;
-    margin-bottom: 5px;
+    width : none;
+    margin-left: 0px;
+    margin-right:0px;
+    margin-top: none;
+    margin-bottom: none;
     text-align: center;
+}
 
-    /* box-shadow: 0px 0px 7px 7px rgba(24, 24, 24, 0.50); */
 
-}
-input::placeholder{
-    color :rgba(255, 255, 255, 0.549);
-}
-input:focus{
-    outline: none;
-    border : solid rgb(rgba(255, 255, 255, 0.355));
-    
-}
+
+    #inputSearch::placeholder{
+        color :rgba(255, 255, 255, 0.549);
+    }
+    #inputSearch:focus{
+        outline: none;
+        border : solid rgb(rgba(255, 255, 255, 0.355));
+    }
+    #musiqueList{
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        width : 400px;
+        /* background-color : rgba(255, 255, 255, 0.355); */
+        text-align : center;
+    }
+    #musiqueList a{
+        color : white;
+        padding : 2px;
+        border : 1px solid rgba(255,189,0,1);
+    }
+    #musiqueList a:hover{
+        color : rgba(255,189,0,1);
+    }
