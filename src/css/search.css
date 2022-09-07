@@ -2,20 +2,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
-    
-    
-   
-
+    margin-top: 20px;   
 }
 
 .icon-search{
     border: 0px 0px 100px 0px solid;
     border-left:solid rgba(255, 255, 255, 0.119);
     border-bottom:solid rgba(255, 255, 255, 0.119);
-
-}
-
+    
 #inputSearch{
     background-color : rgba(24, 24, 24, 0);
     border : solid rgba(255, 255, 255, 0.119);
@@ -35,29 +29,27 @@
     text-align: center;
 }
 
-
-
-    #inputSearch::placeholder{
-        color :rgba(255, 255, 255, 0.549);
-    }
-    #inputSearch:focus{
-        outline: none;
-        
-        border : solid rgb(rgba(255, 255, 255, 0.355));
-    }
-    #musiqueList{
-        display: flex;
-        flex-direction: column;
-        margin-left: 10px;
-        width : 400px;
-        /* background-color : rgba(255, 255, 255, 0.355); */
-        text-align : center;
-    }
-    #musiqueList a{
-        color : white;
-        padding : 2px;
-        border : 1px solid rgba(255,189,0,1);
-    }
-    #musiqueList a:hover{
-        color : rgba(255,189,0,1);
-    }
+}
+#inputSearch::placeholder{
+    color :rgba(255, 255, 255, 0.549);
+}
+#inputSearch:focus{
+    outline: none;
+    border : solid rgb(rgba(255, 255, 255, 0.355));
+}
+#musiqueList{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    width : 400px;
+    /* background-color : rgba(255, 255, 255, 0.355); */
+    text-align : center;
+}
+#musiqueList a{
+    color : white;
+    padding : 2px;
+    border : 1px solid rgba(255,189,0,1);
+}
+#musiqueList a:hover{
+    color : rgba(255,189,0,1);
+}

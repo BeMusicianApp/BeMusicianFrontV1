@@ -3,10 +3,11 @@ import "../css/caroussel.css";
 import { useState, useEffect, Component, Fragment } from "react";
 import { Accord } from "../Models/accord.model";
 import "../musicfont/styles.css";
-//import { FetchAccord } from "../Components/fetchaccord";
+
 
 
 export function Caroussel(props){
+    
     const { img } = props;
     const [loadingState, setLoadingState] = useState('loading');
     console.log("entre les usestate")
@@ -14,11 +15,12 @@ export function Caroussel(props){
     const [tabLinkAcc, setTabLinkAcc] = useState([]);
     const [startBtn, setStartBtn] = useState();
     const [session, setSession] = useState({ state: 'loading', tabLinkAcc: [], })
-
+    
+    let localdata = sessionStorage.getItem('idlocal')
     useEffect(() => {
         const fetchData = async () => {
             console.log("fetch")
-            let dataAccords = await (await fetch('http://localhost:5006/composer')).json();
+            let dataAccords = await (await fetch(`http://localhost:5006/composer/${localdata}`)).json();
             let data2 = await (await fetch('http://localhost:5006/accord')).json();
             return { dataAccords, data2 }
             //setAccords(data);         
@@ -37,6 +39,7 @@ export function Caroussel(props){
                     //ManyToMany puis Jointure
                     tabLink.push([lien,name])
                 }
+//await que ma div existe => fait le foreach
                 tabLink.forEach((item, index) => {
                     let AccordCharger = document.createElement('img');
                     //TODO fonction disable (display : disable)
@@ -45,9 +48,10 @@ export function Caroussel(props){
                     AccordCharger.alt = item[1];
                     AccordCharger.id = index;
                     tabImgs[index] = AccordCharger;
-                    document.getElementById('content').appendChild(AccordCharger);
+                    document.getElementById("content").appendChild(AccordCharger);
                 })
-            }
+            
+        }
             link()
             console.log("TabImgs : ", tabImgs);
             console.log("tablink : ", tabLink);
@@ -65,35 +69,39 @@ export function Caroussel(props){
         //setLoadingState('Ready')
     }, []);
 
-
     console.log('startgame');
     let jouer;
     //resize on window //heroku
     const animAB = (image) => {
         jouer = image.animate([
             { transform: 'translate(0px)' },
-            { transform: 'translate(-600px)' },
-            { transform: 'translate(-600px)' },
+            { transform: 'translate(-360px)' },
+            { transform: 'translate(-360px)' },
         ], 1500);
-        image.style.transform = 'translate(-600px)'
+        image.style.transform = 'translate(-360px)';
+        image.style.opacity = '1'
+        image.style.transition = 'opacity 1s'
+
     };
     function animBC(image) {
         // cible = document.querySelector(image);
         jouer = image.animate([
-            { transform: 'translate(-600px)' },
-            { transform: 'translate(-860px)' },
-            { transform: 'translate(-860px)' },
+            { transform: 'translate(-360px)' },
+            { transform: 'translate(-620px)' },
+            { transform: 'translate(-620px)' },
         ], 1000);
-        image.style.transform = 'translate(-860px)'
+        image.style.transform = 'translate(-620px)'
     };
     function animCD(image) {
         //cible = document.querySelector(image);
         jouer = image.animate([
-            { transform: 'translate(-860px)' },
-            { transform: 'translate(-1560px)' },
-            { transform: 'translate(-1560px)' },
+            { transform: 'translate(-620px)' },
+            { transform: 'translate(-980px)' },
+            { transform: 'translate(-980px)' },
         ], 2000);
-        image.style.transform = 'translate(-1560px)'
+        image.style.transform = 'translate(-980px)'
+        image.style.opacity = '0'
+        image.style.transition = 'opacity 1s'
     };
     function pause() {
         clearInterval(intervalId);
@@ -277,26 +285,26 @@ export function Caroussel(props){
         
     }
 
-    console.log("avant les return")
-    if (session.state === 'loading') {
-        console.log("1er return")
+    // console.log("avant les return")
+    // if (session.state === 'loading') {
+    //     console.log("1er return")
+    //     return (
+    //         <>
+    //             <div>chargement...</div>
+    //             <div id="content"></div>
+    //         </>
+    //     )
+    // }
+
+    // else if (session.state === 'ready') {
+    //     console.log("2nd return")
+    //     console.log("tabLink 2nd retur : ", session.tabLinkAcc)
         return (
             <>
-                <div>chargement...</div>
-                <div id="content"></div>
-            </>
-        )
-    }
-    //ici mes donnée sont charger
-    else if (session.state === 'ready') {
-        console.log("2nd return")
-        console.log("tabLink 2nd retur : ", session.tabLinkAcc)
-        return (
-            <>
-                <div className="conseil">A vous de jouer ! <br />
-                    attendre que l'accord soit arrivé dans le cadre pour jouer</div>
                 <div className="playerCar">
-                    <div className="blockajouer"></div>
+                    <div className="blockajouer">
+                    </div>
+                        <div className="blockajouerbg"></div>
                     <div className="repaire"></div>
 
                     <div id="content">
@@ -304,10 +312,10 @@ export function Caroussel(props){
                     </div>
                 </div>
                 <div className="playerOption">
-                    <div class="icon-undo" onClick={reset}></div>
-                    <div class="play"><i  class="icon-play" onClick={start}></i></div>
-                    <div class="icon-pause" onClick={pause}></div>
-                    <select id="selectDifficulty" onchange={pause}>
+                    <i class="icon-primitive-square" onClick={reset}></i>
+                    <i class="icon-playback-play" onClick={start}></i>
+                    <i class="icon-playback-pause" onClick={pause}></i>
+                <select id="selectDifficulty" onchange={pause}>
                         <option value="1" className="bpmOption" onSelect={pause}>Official Bpm -30</option>
                         <option value="2" className="bpmOption" onClick={pause}>Official Bpm -20</option>
                         <option value="3" className="bpmOption" onChange={pause}>Official Bpm -10</option>
@@ -316,11 +324,8 @@ export function Caroussel(props){
                     </select>
                     {/* <div className="player_mode" onClick={mode}><button>Mode</button></div> */}
                 </div>
-                <div>Appuyez sur play pour commencer !<br />
-                    Pour changer le tempo selectionné le tempo et appuyer sur play !
-                </div>
             </>
         );
     }
-};
+//};
 

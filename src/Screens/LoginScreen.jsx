@@ -16,8 +16,10 @@ const LoginScreen = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-      console.log("handl");
+    let email = document.getElementById("inputEmail").value;
+    let password = document.getElementById("inputPassword").value;
+    if(password.length>=4)
+    { 
       const form = event.currentTarget;
       const formData = new FormData(form);
       const jsonData = Object.fromEntries(formData.entries());
@@ -39,26 +41,31 @@ const LoginScreen = () => {
           navigate('/');
         }
       });
+    }
+    else{
+      alert("mot de passe trop court");
+    }
   }
 
   return (
     <>
+       <div id="connect"> <Link to="/register"> <button className="BasicButton">S'inscrire</button></Link></div>
       <div className="authscreen">
         <div className="capsform">
           <div className="titleform">
-
-          <h1>Connexion</h1>
+        <img id="logo" src={process.env.PUBLIC_URL + '/img/site/logosquarewhite.png'}></img>
           </div>
           <form onSubmit={handleSubmit}>
             <div className="fieldForm">
-              <input type="text" name="email"className="inputauth" id="InputEmail" aria-describedby="emailHelp"  placeholder="Votre adresse e-mail"/>
+              <i class="icon-envelope"></i> 
+              <input type="text" name="email" className="inputauth" id="inputEmail" aria-describedby="emailHelp"  placeholder="Votre adresse e-mail"/>
             </div>
             <div className="fieldForm">
-              <input type="password" name="password" className="inputauth" id="exampleInputPassword1" placeholder="Votre mot de passe"/>
+            <i class="icon-key"></i>
+              <input type="password" name="password" className="inputauth" id="inputPassword" placeholder="Votre mot de passe"/>
             </div>
             <div className="buttonform">
               <button type="submit" className="BasicButton">Se Connecter</button>
-              <Link to="/register"> <button className="BasicButton">S'inscrire</button></Link>
             </div>
             <div className="fieldForm">
               <div className="forgotpass">

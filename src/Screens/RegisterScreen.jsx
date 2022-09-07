@@ -16,7 +16,7 @@ const RegisterScreen = () => {
     let password1 = document.getElementById("InputPasswordReg1").value
     let password2 = document.getElementById("InputPasswordReg2").value
 
-    if (password1 === password2) {
+    if (password1.length >=8 && password2.length >=8 && password1 === password2) {
       const form = event.currentTarget;
       const formData = new FormData(form);
       const jsonData = Object.fromEntries(formData.entries());
@@ -47,33 +47,39 @@ const RegisterScreen = () => {
       <div className="authscreen">
         <div className="capsform">
         <div className="titleform">
-          <h1>Enregistrement</h1>
+        <img id="logo" src={process.env.PUBLIC_URL + '/img/site/logosquarewhite.png'}></img>
         </div>
           <form onSubmit={handleSubmit}>
             <div className="fieldForm">
+            <i class="icon-user" id="icon-user"></i>
               <input type="text" name="nom" className="inputauth" id="inputNom" aria-describedby="NomHelp" placeholder="Votre Nom" />
             </div>
             <div className="fieldForm">
+            <i class="icon-user" id="icon-user"></i>
               <input type="text" name="prenom" className="inputauth" id="inputPrenom" aria-describedby="prenomHelp" placeholder="Votre Prénom" />
             </div>
             <div className="fieldForm">
+              <i class="icon-user" id="icon-user"></i>
               <input type="text" name="pseudo" className="inputauth" id="inputPseudo" aria-describedby="pseudoHelp" placeholder="Votre Pseudo"/>
             </div>
             <div className="fieldForm">
+            <i class="icon-envelope"></i>
               <input type="email" name="email" className="inputauth" id="InputEmail" aria-describedby="emailHelp" placeholder="Votre adresse e-mail"/>
             </div>
             <div className="fieldForm">
+            <i class="icon-key"></i>
               <input type="password" name="password" className="inputauth" id="InputPasswordReg1" placeholder="Votre mot de passe"/>
             </div>
             <div className="fieldForm">
+            <i class="icon-key"></i>
               <input type="password" name="password" className="inputauth" id="InputPasswordReg2" placeholder="Repeter votre mot de passe"/>
             </div>
             <div className="buttonform">
-              <Link to="/login"> <button className="BasicButton">Se connecter</button></Link>
               <button type="submit" className="BasicButton">S'inscrire</button>
             </div>
           </form>
         </div>
+             <div id="connect"> <Link to="/login"> <button className="BasicButton">Se connecter</button></Link></div>
       </div>
     </>
   )

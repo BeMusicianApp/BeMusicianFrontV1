@@ -55,10 +55,10 @@ const App = () => {
             <Route path="/presentation" element={<PresentationScreen />} />
             <Route path="/explication" element={<ExplicationScreen />} />
            
+            <Route path="*" element={<NotFoundScreen />} />
           </Route>}
           
          
-          <Route path="*" element={<NotFoundScreen />} />
         </Routes>
         
       </BrowserRouter>

@@ -39,7 +39,7 @@ const Footer = () => {
 
             <div className="text-center p-3 bg-dark text-light" >
                 © 2022 Copyright:
-                <Link to="/">MusicLearn.com</Link>
+                <Link to="/">BeMusician</Link>
             </div>
 
         </footer>

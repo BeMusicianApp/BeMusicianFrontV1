@@ -6,14 +6,13 @@ function Search() {
   return (
     <>
 
-<div className="search">
+         <div className="search">
           <i class="icon-search"></i>
-
-          <input 
-          id="inputSearch" 
-          type="text"  
-          readonly="readonly" value="search"></input>
-        </div>
+                <input
+                id="inputSearch" 
+                type="text" 
+                placeholder='rechercher'/>               
+       </div>
      
     </>
   );
