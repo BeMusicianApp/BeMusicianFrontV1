@@ -5,14 +5,6 @@ import { AuthContext } from "../contexts/authContext";
 const LogoutScreen = () => {
 
 const navigate = useNavigate();
-
-
-    // useEffect(() =>{
-    //     setTimeout(()=>{
-    //         setAuth ({role:0});
-    //         navigate("/login");
-    //     },1000);
-    // }) 
     const {auth, setAuth} = useContext(AuthContext);
     function deconnexion(){
         const cookieStr = 'token=vide ; max-age=0';

@@ -13,11 +13,9 @@
 #inputSearch{
     background-color : rgba(24, 24, 24, 0);
     border : solid rgba(255, 255, 255, 0.119);
-
     border-top: none;
     border-right : none;
     border-left: none;
-
     color : white;
     padding: 12px 10px;
     height : 40px;

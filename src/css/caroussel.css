@@ -90,11 +90,11 @@
 }
 
 .playerOption i:active{
-   color : rgb(116, 116, 116);
-   -webkit-animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+   color : rgb(184, 184, 184);
+   /* -webkit-animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both; */
 }
-@-webkit-keyframes scale-up-center {
+/* @-webkit-keyframes scale-up-center {
    0% {
      -webkit-transform: scale(1);
              transform: scale(1);
@@ -121,7 +121,7 @@
       -webkit-transform: scale(1);
               transform: scale(1);
     }
-}
+} */
 
 select{
    background-color: rgb(187, 187, 187);

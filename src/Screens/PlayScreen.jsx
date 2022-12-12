@@ -6,13 +6,14 @@ import { Accord } from "../Models/accord.model";
 
 const PlayScreen = () => {
 
-    let localdataName = sessionStorage.getItem('nameLocal');
-    console.log("name : ",localdataName)
+    let musiqueRow = sessionStorage.getItem('musicSelectedInfo').split(',');
+    console.log("name : ",musiqueRow)
 
     return ( 
         <>
         <div className="playerMain">
-            <div className="playerSecond">{localdataName}</div> 
+            <div className="playerSecond text-xl">{musiqueRow[0]}</div>
+            <div className="playerSecond text-lg">{musiqueRow[1]}</div>  
             <div className="conseil">A vous de jouer ! <br />
                     attendre que l'accord soit arrivé dans le cadre pour jouer
             </div>

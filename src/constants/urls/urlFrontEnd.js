@@ -1,0 +1,12 @@
+export const URL_HOME = '/';
+export const URL_LOGIN = '/login';
+export const URL_REGISTER = 'register';
+export const URL_PROFILE = '/Profile';
+export const URL_ADMIN = '/Admin';
+export const URL_PLAYER = '/play';
+export const URL_LOGOUT = '/logout';
+export const URL_PRESENTATION = '/presentation';
+export const URL_CREATION = '/creation';
+export const URL_INSTRUMENT = '/instrument';
+export const URL_GUITARE = '/guitare';
+export const URL_COMPOSER = '/composer';

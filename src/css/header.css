@@ -4,6 +4,7 @@
     width : 100%;
     display : flex;
     align-items: center;
+    /* cursor : none; */
 }
 
 .mainNav{
@@ -15,7 +16,7 @@
 #logoHeader{
     height : 80px;
     display : flex;
-    padding : 20px;
+    padding : 15px;
 }
 
 .navitem{
@@ -26,14 +27,14 @@
     color : white;
 }
 .navitem:hover{
-    color:rgba(255,189,0,1);
+    color:#FFBD36;
     text-shadow: 0px 0px 10px #1f1f1f;
 }
 i{
     font-size: 25px;
 }
 i:hover{
-    color : rgba(255,189,0,1);
+    color : #FFBD36;
     text-shadow: 0px 0px 10px #1f1f1f;
 }
 #musiqueChoice{

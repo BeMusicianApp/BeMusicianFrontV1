@@ -3,6 +3,9 @@ body{
     margin :0;
     padding: 0;
 }
+/* main{
+    cursor : none;
+} */
 h1{
     color :rgb(255,110,0,1)
 }

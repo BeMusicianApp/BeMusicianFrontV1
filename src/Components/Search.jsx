@@ -7,7 +7,7 @@ function Search() {
     <>
 
          <div className="search">
-          <i class="icon-search"></i>
+          <i className="icon-search"></i>
                 <input
                 id="inputSearch" 
                 type="text" 
