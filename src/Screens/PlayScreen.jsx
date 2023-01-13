@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import "../css/player.css";
 import { Caroussel } from "../Components/player";
-import {Fetchmusique} from "../Components/fetchmusique"
-import { Accord } from "../Models/accord.model";
+import { Provider } from "react-redux";
+import { store } from '../Components/player/redux-store-player/counterTab';
 
 const PlayScreen = () => {
 
@@ -11,6 +11,7 @@ const PlayScreen = () => {
 
     return ( 
         <>
+        <Provider store={store}>
         <div className="playerMain">
             <div className="playerSecond text-xl">{musiqueRow[0]}</div>
             <div className="playerSecond text-lg">{musiqueRow[1]}</div>  
@@ -19,6 +20,8 @@ const PlayScreen = () => {
             </div>
                 <Caroussel/>
         </div>
+
+        </Provider>
         </>
     );
 };

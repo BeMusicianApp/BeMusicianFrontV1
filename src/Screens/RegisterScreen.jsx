@@ -3,85 +3,137 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../helpers/string.helpers";
 import { useNavigate } from "react-router-dom";
-//import { AuthContext } from "../contexts/AuthContext";
+import * as Yup from 'yup';
+import { Field, Form, Formik, ErrorMessage } from 'formik';
+import Input from "../lib/form-and-error-components";
+import { register } from "../api/backend/account";
 
-const RegisterScreen = () => {
-  const [signin, setSignin] = useState();
+
+
+const RegisterScreen = ({ submit, errorLog }) => {
   const navigate = useNavigate();
+    const handleRegister=(values)=>{
+      register(values)
+    };
 
-  
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    let password1 = document.getElementById("InputPasswordReg1").value
-    let password2 = document.getElementById("InputPasswordReg2").value
-
-    if (password1.length >=8 && password2.length >=8 && password1 === password2) {
-      const form = event.currentTarget;
-      const formData = new FormData(form);
-      const jsonData = Object.fromEntries(formData.entries());
-      const body = JSON.stringify(jsonData);
-      fetch("http://localhost:5006/appuser/register", {
-        method: "post",
-        headers: {
-          "content-type": "application/json",
-        },
-        body,
-      })
-        .then((resp) => resp.text())
-        .then((text) => {
-          const data = text.toJson();
-          if (data.result) {
-            document.cookie = `auth=${data.token};max-age=${60 * 60 * 24}`;
-          }
-          else {
-            document.cookie = `auth=null;max-age=0`;
-          }
-        });
-      navigate('/login');
-    }
-  }
+  const defaulValuesRegister = {
+    nom: '',
+    prenom:'',
+    pseudo:'',
+    password: '',
+    confirmpassword:'',
+    email:'',
+    rememberMe: false,
+};
+const schemaFormRegister = Yup.object().shape({
+  nom: Yup.string().min(2, "Nom trop court").max(30, "Nom trop long").required('Prénom obligatoire'),
+  prenom: Yup.string().min(2, "Prénom trop court").max(30, "Prénom trop long").required('Nom obligatoire'),
+  pseudo: Yup.string().min(2, "Pseudo trop court").max(30, "Pseudo trop long").required('Nom obligatoire'),
+  email: Yup.string().email('email invalide').required('e-mail obligatoire'),
+  password: Yup.string().min(8, 'minimum 8 caractères').required('Mot de passe obligatoire'),
+  confirmPassword: Yup.string().min(8, 'minimum 8 caractères').required('Mot de passe obligatoire'),
+});
 
   return (
-    <>
-      <div className="authscreen">
-        <div className="capsform">
-        <div className="titleform">
-        <img id="logo" src={process.env.PUBLIC_URL + '/img/site/logosquarewhite.png'}></img>
-        </div>
-          <form onSubmit={handleSubmit}>
-            <div className="fieldForm">
-            <i class="icon-user" id="icon-user"></i>
-              <input type="text" name="nom" className="inputauth" id="inputNom" aria-describedby="NomHelp" placeholder="Votre Nom" />
-            </div>
-            <div className="fieldForm">
-            <i class="icon-user" id="icon-user"></i>
-              <input type="text" name="prenom" className="inputauth" id="inputPrenom" aria-describedby="prenomHelp" placeholder="Votre Prénom" />
-            </div>
-            <div className="fieldForm">
-              <i class="icon-user" id="icon-user"></i>
-              <input type="text" name="pseudo" className="inputauth" id="inputPseudo" aria-describedby="pseudoHelp" placeholder="Votre Pseudo"/>
-            </div>
-            <div className="fieldForm">
-            <i class="icon-envelope"></i>
-              <input type="email" name="email" className="inputauth" id="InputEmail" aria-describedby="emailHelp" placeholder="Votre adresse e-mail"/>
-            </div>
-            <div className="fieldForm">
-            <i class="icon-key"></i>
-              <input type="password" name="password" className="inputauth" id="InputPasswordReg1" placeholder="Votre mot de passe"/>
-            </div>
-            <div className="fieldForm">
-            <i class="icon-key"></i>
-              <input type="password" name="password" className="inputauth" id="InputPasswordReg2" placeholder="Repeter votre mot de passe"/>
-            </div>
-            <div className="buttonform">
-              <button type="submit" className="BasicButton">S'inscrire</button>
-            </div>
-          </form>
-        </div>
-             <div id="connect"> <Link to="/login"> <button className="BasicButton">Se connecter</button></Link></div>
-      </div>
-    </>
+    <Formik
+        initialValues={defaulValuesRegister}
+        onSubmit={handleRegister}
+        validationSchema={schemaFormRegister}
+        >
+          <Form className="mt-8 space-y-6 w-96 rounded justify-center pt-8 pb-8">
+          <Field
+            type="text"
+            name="nom"
+            placeholder="Nom"
+            autoComplete="nom"
+            component={Input}
+            className="rounded-md"
+            noError
+          />
+          <ErrorMessage
+            name="nom"
+            component="small"
+            className="text-red-500"
+          />
+          <Field
+            type="text"
+            name="prenom"
+            placeholder="Prenom"
+            autoComplete="Prenom"
+            component={Input}
+            className="rounded-md"
+            noError
+          />
+          <ErrorMessage
+            name="prenom"
+            component="small"
+            className="text-red-500"
+          />
+          <Field
+            type="text"
+            name="pseudo"
+            placeholder="Pseudo"
+            autoComplete="Pseudo"
+            component={Input}
+            className="rounded-md"
+            noError
+          />
+          <ErrorMessage
+            name="pseudo"
+            component="small"
+            className="text-red-500"
+          />
+          <Field
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            autoComplete="email"
+            component={Input}
+            className="rounded-md"
+            noError
+          />
+          <ErrorMessage
+            name="email"
+            component="small"
+            className="text-red-500"
+          />
+             <Field
+            type="password"
+            name="password"
+            placeholder="Mot de pass"
+            autoComplete="password"
+            component={Input}
+            className="rounded-md"
+            noError
+          />
+          <ErrorMessage
+            name="password"
+            component="small"
+            className="text-red-500"
+          />
+             <Field
+            type="password"
+            name="confirmPassword"
+            placeholder="confirmer votre mot de passe"
+            autoComplete="password"
+            component={Input}
+            className="rounded-md"
+            noError
+          />
+          <ErrorMessage
+            name="confirmPassword"
+            component="small"
+            className="text-red-500"
+          />
+            <button
+              type="submit"
+              className="btn text-dark-pink group relative mt-4"
+            >
+            S'inscrire
+            </button>
+          </Form>
+        </Formik>
   )
 };
+
 export default RegisterScreen;

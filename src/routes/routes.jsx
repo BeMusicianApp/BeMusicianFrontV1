@@ -12,34 +12,35 @@ import ChoixInstrumentScreen from '../Screens/ChoixInstrumentScreen';
 import CreationScreen from '../Screens/creationScreen';
 import PlayScreen from '../Screens/PlayScreen';
 import GuitareScreen from '../Screens/GuitareScreen';
+import RegisterScreen from '../Screens/RegisterScreen';
 
 
 const Routes = () => {
     return (
         <RoutesContainer>
             <Route
-                 path={URL.URL_HOME} 
+                 path={URL.URL_HOME} roles={[ROLE_USER]}
                  element={
-                    <PrivateRoute roles={[ROLE_USER]}>
+                    
                         <HomeScreen />
-                    </PrivateRoute>
+                    
                     }
             />
                 <Route
-                 path={URL.URL_PROFILE} 
+                 path={URL.URL_PROFILE} roles={[ROLE_USER]}
                  element={
-                    <PrivateRoute roles={[ROLE_USER]}>
+                    <PrivateRoute >
                         <ProfilScreen />
                     </PrivateRoute>
                     }
             />
-
+            <Route path={URL.URL_REGISTER} element={<RegisterScreen/>}/>
             <Route path={URL.URL_LOGIN} element={<LoginScreen/>}/> 
             <Route path={URL.URL_PRESENTATION} element={<PresentationScreen/>}/> 
-            <Route path={URL.URL_CREATION} element={<CreationScreen/>}/> 
-            <Route path={URL.URL_PLAYER} element={<PlayScreen/>}/>
-            <Route path={URL.URL_GUITARE} element={<GuitareScreen/>}/> 
-            <Route path={URL.URL_INSTRUMENT} element={<ChoixInstrumentScreen/>}/>
+            <Route path={URL.URL_CREATION} roles={[ROLE_USER]} element={<PrivateRoute ><CreationScreen/></PrivateRoute>}/> 
+            <Route path={URL.URL_PLAYER} roles={[ROLE_USER]}  element={<PlayScreen/>}/>
+            <Route path={URL.URL_GUITARE} roles={[ROLE_USER]} element={<GuitareScreen/>}/> 
+            <Route path={URL.URL_INSTRUMENT} roles={[ROLE_USER]}  element={<PrivateRoute ><ChoixInstrumentScreen/></PrivateRoute>}/>
         </RoutesContainer>
     );
 };

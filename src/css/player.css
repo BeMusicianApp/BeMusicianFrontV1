@@ -1,5 +1,5 @@
 .playerMain{
-    background-color: #202327 ;
+    /* background-color: #202327 ; */
     color : white;
     display: flex;
     flex-direction: column;
@@ -8,7 +8,7 @@
     /* cursor : none; */
 } 
 .playerSecond{
-    background-color: #202327 ;
+    /* background-color: #202327 ; */
     width : 1280px;
     margin : 0px;
     height : 40px;

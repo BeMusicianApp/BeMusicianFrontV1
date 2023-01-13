@@ -3,7 +3,7 @@ export function animCA (image) {
         { transform: 'translate(600px)' },
         { transform: 'translate(860px)' },
         { transform: 'translate(860px)' },
-    ], 200);
+    ],);
     image.style.transform = 'translate(860px)'
 };
 
@@ -12,6 +12,14 @@ export const animDA = (image) => {
         { transform: 'translate(860px)' },
         { transform: 'translate(1560px)' },
         { transform: 'translate(1560px)' },
-    ], 200);
+    ],);
     image.style.transform = 'translate(1560px)'
 };
+export const animBA = (image)=>{
+    image.animate([
+        { transform: 'translate(-360px)' },
+        { transform: 'translate(0px)' },
+        { transform: 'translate(0px)' },
+    ],);
+    image.style.transform = 'translate(0px)'
+}

@@ -3,11 +3,9 @@ import "../css/default.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import { useContext } from "react";
 import { useDispatch } from 'react-redux';
 import { signIn } from "../redux-store/authenticationSlice";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../contexts/authContext";
 import { authenticate } from "../api/backend/account";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 
@@ -20,20 +18,18 @@ const LoginScreen = () => {
   //const [signin, setSignin] = useState();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [errorLog, setErrorLog] = useState(false);
-  const [cookie,setCookie] = useCookies(['token']);
+  const [errorLog, setErrorLog] = useState({state : false});
+  
   const handleSubmit = (values) => {
-    console.log(values)
     authenticate(values)
             .then((res) => {
                 if (res.status === 200 && res.data.token) {
                     dispatch(signIn(res.data.token));
-                    console.log(res.data.token)
                     navigate(URL_HOME);
                 }
             })
             .catch(()=>{
-                setErrorLog(true)
+                setErrorLog({state : true})
             });
   }
 
@@ -90,9 +86,9 @@ const LoginScreen = () => {
           component="small"
           className="text-danger text-red-500"
         />
-            <div className="buttonform">
-              <button type="submit" className="BasicButton">Se Connecter</button>
-            </div>
+          <div className="buttonform">
+            <button type="submit" className="BasicButton">Se Connecter</button>
+          </div>
       </Form>
     </Formik>
     </>

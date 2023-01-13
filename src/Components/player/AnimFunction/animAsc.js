@@ -14,7 +14,7 @@ export function animBC(image){
         { transform: 'translate(-360px)' },
         { transform: 'translate(-620px)' },
         { transform: 'translate(-620px)' },
-    ], 1000);
+    ], 1500);
     image.style.transform = 'translate(-620px)'
 };
 export function animCD(image){

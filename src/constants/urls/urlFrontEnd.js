@@ -1,6 +1,6 @@
 export const URL_HOME = '/';
 export const URL_LOGIN = '/login';
-export const URL_REGISTER = 'register';
+export const URL_REGISTER = '/register';
 export const URL_PROFILE = '/Profile';
 export const URL_ADMIN = '/Admin';
 export const URL_PLAYER = '/play';

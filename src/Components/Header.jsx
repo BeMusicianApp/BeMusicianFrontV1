@@ -26,13 +26,13 @@ const Header = () => {
                   
                             <Link to={URL.URL_GUITARE}  id="musiqueChoice"><div className="navitem"><i className="icon-note-beamed"></i></div></Link>
                        
-                            <Link to={URL.URL_PROFILE} className="navitem" id="profil"><i className="icon-user"></i></Link>               
+                            {/* <Link to={URL.URL_PROFILE} className="navitem" id="profil"><i className="icon-user"></i></Link>               
                  
-                            <Link to={URL.URL_CREATION} className="navitem" id="create"><i className="icon-plus"></i></Link>               
+                            <Link to={URL.URL_CREATION} className="navitem" id="create"><i className="icon-plus"></i></Link>                */}
                          
-                            <Link to={URL.URL_INSTRUMENT} className="navitem" id="choixinstrument">admin</Link>
+                            {/* <Link to={URL.URL_INSTRUMENT} className="navitem" id="choixinstrument">admin</Link> */}
                                          
-                            <Link to={URL.URL_LOGOUT} className="navitem" id="logout"><i className="icon-sign-out" onClick={popUpLogOut}></i></Link>               
+                            <Link to={URL.URL_LOGIN} className="navitem" id="logout"><i className="icon-sign-out" onClick={popUpLogOut}></i></Link>               
                    
                   </nav>       
             </div>

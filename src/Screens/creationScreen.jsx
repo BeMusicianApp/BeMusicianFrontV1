@@ -12,6 +12,7 @@ const CreationScreen = () => {
     const [loadAccord, setLoadAccord] = useState([]);
     const [loader, setLoader] = useState({ state: false })
     const [AccordDrop, setAccordDrop] = useState([])
+    // const [tabCopy, setTabcopy] = useState([])
     console.log(AccordDrop)
 
     const select = (e) => {
@@ -30,19 +31,21 @@ const CreationScreen = () => {
         // btnsuppr.innerHTML = "test"
         // btnsuppr.className = "bg-red-500 rounded h-10"
         // btnsuppr.onClick={supprimer}
-
+        const index = tabCopy.push(cartSelect.id)
+        const tabIndex = index-1
+        console.log(tabIndex)
+        AccordAjouter.index = index;
         AccordAjouter.src = cartSelect.src;
         AccordAjouter.className = "rounded h-40 m-2 hover:border-4 hover:border-red-500";
         AccordAjouter.id = cartSelect.id;
-        AccordAjouter.title = "title" + cartSelect.id;
+        AccordAjouter.title = tabIndex;
         AccordAjouter.draggable = "true"
         AccordAjouter.ondragstart = ()=> moveCard(Event, cartSelect.id);
         //AccordAjouter.role="button";
-        AccordAjouter.onclick = () => deleteCart("title" + cartSelect.id);
+        AccordAjouter.onclick = () => deleteCart(tabIndex);
 
         document.getElementById("droptarget").appendChild(AccordAjouter)
-
-        tabCopy.push(cartSelect.id)
+        
         console.log(tabCopy)
         setAccordDrop(
             tabCopy
@@ -68,7 +71,14 @@ const CreationScreen = () => {
 
     const deleteCart = (value) => {
         const cart = document.querySelector(`img[title='${value}']`)
+        console.log(cart.title)
         cart.remove()
+        tabCopy.splice(cart.title,1)
+        tabCopy.map((item,index)=>{
+           cart.title = index
+            
+        })
+        //mettre ajours / recreer un tableau
     }
 
     const handleSubmit = async (values) => {

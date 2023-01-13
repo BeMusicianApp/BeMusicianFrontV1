@@ -1,14 +1,11 @@
 body{
-    background-color: rgb(53, 50, 50);
+    background-color: rgb(39 39 42);
     margin :0;
     padding: 0;
 }
 /* main{
     cursor : none;
 } */
-h1{
-    color :rgb(255,110,0,1)
-}
 a{
     color: rgb(255,110,0,1);
 }

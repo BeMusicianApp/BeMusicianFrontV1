@@ -62,12 +62,13 @@ export const selectToken = (state) => state.auth.token;
 
     if (!user) return false;
 
-    console.log("role", roles)
-    console.log("user.role",user.roles)
+    // console.log("role", roles)
+    // console.log("user.role",user.roles)
 
     return roles.some((roles) => roles.includes(user.roles));
 
 };
+
  export const isAdmin = (state) => {
 
     const user = state.auth.user;
