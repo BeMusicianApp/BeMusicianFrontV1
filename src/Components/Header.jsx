@@ -32,7 +32,7 @@ const Header = () => {
                          
                             {/* <Link to={URL.URL_INSTRUMENT} className="navitem" id="choixinstrument">admin</Link> */}
                                          
-                            <Link to={URL.URL_LOGIN} className="navitem" id="logout"><i className="icon-sign-out" onClick={popUpLogOut}></i></Link>               
+                            {/* <Link to={URL.URL_LOGIN} className="navitem" id="logout"><i className="icon-sign-out" onClick={popUpLogOut}></i></Link>                */}
                    
                   </nav>       
             </div>

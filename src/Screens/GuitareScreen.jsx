@@ -42,7 +42,6 @@ if(loader.state === true){
 
     return (
             <>
-            <Search/>
             <div className="grid grid-cols-5">
 
             {musiqueList?.map((item) =>{
@@ -58,7 +57,6 @@ if(loader.state === true){
                         </div>
                         </div>
                     </div>
-                    
                 )
             })}
             </div>

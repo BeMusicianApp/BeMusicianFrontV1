@@ -3,8 +3,9 @@ import handleHttpError from '../../lib/HandleHttpError';
 import { getToken } from '../../services/tokenServices';
 
 // changer le baseURL par le env
+
 const apiBackEnd = axios.create({
-    baseURL: 'http://localhost:5006',
+    baseURL: 'https://quiet-lake-51587.herokuapp.com',
 });
 export default apiBackEnd;
 
