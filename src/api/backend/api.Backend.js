@@ -3,10 +3,17 @@ import handleHttpError from '../../lib/HandleHttpError';
 import { getToken } from '../../services/tokenServices';
 
 // changer le baseURL par le env
+let apiBackEnd
+if(process.env.NODE_ENV==="production"){
+    apiBackEnd = axios.create({
+        baseURL: 'https://quiet-lake-51587.herokuapp.com',
+    });
+}else{
+    apiBackEnd = axios.create({
+        baseURL: 'http://localhost:5006',
+    });
+}
 
-const apiBackEnd = axios.create({
-    baseURL: 'https://quiet-lake-51587.herokuapp.com',
-});
 export default apiBackEnd;
 
 apiBackEnd.interceptors.request.use((request) => {

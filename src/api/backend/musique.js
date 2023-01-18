@@ -5,6 +5,9 @@ export function getAllMusique() {
     return apiBackEnd.get(URL_BACK_MUSIQUE);
 }
 
+export function getOneMusique(id){
+    return apiBackEnd.get(URL_BACK_MUSIQUE + id)
+}
 export function getMusiqueToPlay(id) {
     console.log(id)
     return apiBackEnd.get(URL_BACK_COMPOSER + id)

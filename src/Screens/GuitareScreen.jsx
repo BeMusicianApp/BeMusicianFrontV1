@@ -23,7 +23,7 @@ const GuitareScreen = () => {
         fetchData()
     }, []);
 
-
+    console.log(process.env)
     function goToPlay(musicSelected){
         sessionStorage.setItem("musicSelected", musicSelected.Id_musique)
         sessionStorage.setItem("musicSelectedInfo", [musicSelected.artiste,musicSelected.titre])

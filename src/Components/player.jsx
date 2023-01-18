@@ -1,86 +1,107 @@
 import "../css/caroussel.css";
 import { useState, useEffect, Component, Fragment } from "react";
 import "../musicfont/styles.css";
-import { getMusiqueToPlay } from "../api/backend/musique";
+import { getMusiqueToPlay, getOneMusique } from "../api/backend/musique";
 import { animAB, animBC, animCD } from "./player/AnimFunction/animAsc";
 import { animDC, animCB,animBA } from './player/AnimFunction/animDesc';
-
 import { resetAnim } from "./player/playerFunctions/reset";
-import { pause } from "./player/playerFunctions/pause";
+//import { pause } from "./player/playerFunctions/pause";
 import { decompteAnim } from "./player/playerFunctions/decompte";
 import { useDispatch, useSelector } from 'react-redux';
 import { nextAnim } from "./player/playerFunctions/next";
 import { previousAnim } from "./player/playerFunctions/previous";
-import { startPlay } from "./player/playerFunctions/start";
+//import { startPlay } from "./player/playerFunctions/start";
 import { startInterval, stopInterval, updateState } from "./player/redux-store-player/counterTab";
-// import timeInterval from "./player/playerFunctions/timeInterval";
-
+import Range from "./player/playerFunctions/playerComposant/range";
 
 export function Caroussel() {
     const [loadingState, setLoadingState] = useState('loading');
     const [tabLinkAcc, setTabLinkAcc] = useState([]);
-    const MusiqueSelected = sessionStorage.getItem("musicSelected")
-    const [session, setSession] = useState({ state: 'loading' })
-    const dispatch = useDispatch()
-    //const counterAB = useSelector((state)=> state.counterTab.counterAB)
+    const MusiqueSelected = sessionStorage.getItem("musicSelected");
+    const [session, setSession] = useState({ state: 'loading' });
+    let [Bpm, setBpm] = useState(0);
+
     let counterAB = 0
- 
+    console.log(Bpm)
     useEffect(() => {
-        
         const fetchData = async () => {
             const data = await getMusiqueToPlay(MusiqueSelected)
-            return data.data
+            const data2 = await getOneMusique(MusiqueSelected)
+            const dataAll = {data , data2}
+            return dataAll
         }
-        dispatch({type : 'counterTab/reset', payload:counterAB})
         fetchData().then(data => {
-            console.log(data)
-            const tabAcc = []
-            data.forEach((item, index) => {
+            console.log(data.data.data)
+            const tabAcc = [];
+            data.data.data.forEach((item, index) => {
                 let AccordCharger = document.createElement('img');
-                //TODO fonction disable (display : disable)
                 AccordCharger.src = item.accordImage;
                 AccordCharger.className = "imgcar";
                 AccordCharger.alt = item.AccordName;
                 AccordCharger.id = index;
                 index = AccordCharger;
-                tabAcc.push(AccordCharger)
+                tabAcc.push(AccordCharger);
                 document.getElementById("content").appendChild(AccordCharger);
             })
-            setTabLinkAcc(tabAcc)
-            setSession({ state: 'ready' })
+            setTabLinkAcc(tabAcc);
+            setBpm(data.data2.data.bpm)
+            setSession({state: 'ready' });
         })
     }, []);
 
-    let selection = document.getElementById("selectDifficulty");
-    //let optiontest = selection.options[selection.selectedIndex].selected = true;
-
     let intervalId = null;
-    //sessionStorage.getItem('intervalId')
-    let optionInUse = 0;
-    const start = () => {
-        intervalId = setInterval(function(){play()},1000);
+
+    const tempoSelect = (e) =>{
+        const selectedBpm = e.target.value;
+        console.log(selectedBpm);
+        Bpm=selectedBpm;
+        pause(intervalId)
+        startPlay=false
+        start()
     }
 
-    function play(){
-        if (counterAB === 0){
-            animAB(tabLinkAcc[counterAB]);
-            return counterAB++
-            }
-        else if(counterAB===1){
-            animAB(tabLinkAcc[counterAB]);
-            animBC(tabLinkAcc[counterAB - 1]);
-            return counterAB++
+    let startPlay = false
+    const start = () => {
+        if(startPlay==false){
+           
+            const tempo = Math.round(60000/Bpm)
+            console.log(tempo)
+            intervalId = setInterval(function(){play()},tempo);
+            startPlay=true
         }
-        else{
-            animAB(tabLinkAcc[counterAB]);
-            animBC(tabLinkAcc[counterAB - 1]);
-            animCD(tabLinkAcc[counterAB - 2]);
-            return counterAB++;
+    }
+
+    let mesure = 17
+    function play(){
+        console.log(mesure)
+        mesure--
+        if(mesure>1){
+            if(mesure%4==0){
+                if (counterAB === 0){
+                    animAB(tabLinkAcc[counterAB]);
+                    return counterAB++
+                    }
+                else if(counterAB===1){
+                    animAB(tabLinkAcc[counterAB]);
+                    animBC(tabLinkAcc[counterAB - 1]);
+                    return counterAB++
+                }
+                else{
+                    animAB(tabLinkAcc[counterAB]);
+                    animBC(tabLinkAcc[counterAB - 1]);
+                    animCD(tabLinkAcc[counterAB - 2]);
+                    return counterAB++;
+                }
+        }
+        }else{
+            mesure=17
         }
     }
     
     function next()
     {
+        pause(intervalId)
+        startPlay=false
         if (counterAB === 0){
             animAB(tabLinkAcc[counterAB]);
             counterAB++
@@ -97,17 +118,15 @@ export function Caroussel() {
             counterAB++;
         }
     }
-    
-    const stop = () => {
-      dispatch(stopInterval());
-    };
 
     function previous(){
-        if (counterAB === 1) {
+        pause(intervalId)
+        startPlay=false
+        if (counterAB === 1){
             animBA(tabLinkAcc[counterAB - 1]);
             counterAB--
         }
-        else if (counterAB === 2) {
+        else if(counterAB === 2){
             animCB(tabLinkAcc[counterAB - 2]);
             animBA(tabLinkAcc[counterAB - 1]);
             counterAB--
@@ -122,36 +141,72 @@ export function Caroussel() {
     }
    
     function reset(){
-        resetAnim(tabLinkAcc,counterAB)
-        counterAB = 0
+        resetAnim(tabLinkAcc,counterAB);
+        pause(intervalId)
+        counterAB = 0;
+        startPlay=false;
     }
 
-    return (
-        <>
+    function pause(){
+        clearInterval(intervalId);
+        console.log("startPlay",startPlay)
+        startPlay=false
+        intervalId = null;
+        sessionStorage.setItem("intervalId", intervalId)
+    }
+
+    console.log(session.state)
+    if(session.state==="loading"){
+        return (
+            <>
             <div className="playerCar">
                 <div className="blockajouer">
                 </div>
-                <div className="blockajouerbg"></div>
-                <div className="repaire"></div>
-                <div id="content">
+                    <div className="blockajouerbg"></div>
+                    <div className="repaire"></div>
+                    <div id="content">
                 </div>
             </div>
             <div className="playerOption">
                 <i className="icon-fast-backward" onClick={next}></i>
                 <i className="icon-primitive-square" onClick={reset}></i>
                 <i className="icon-playback-play" onClick={start}></i>
-                <i className="icon-playback-pause" onClick={() => {pause(intervalId)}}></i>
+                <i className="icon-playback-pause" onClick={() => {pause(intervalId, startPlay)}}></i>
                 <i className="icon-fast-forward" onClick={previous}></i>
-                <select id="selectDifficulty" onChange={start}>
-                    <option value="1" className="bpmOption" >Official Bpm -30</option>
-                    <option value="2" className="bpmOption" >Official Bpm -20</option>
-                    <option value="3" className="bpmOption" >Official Bpm -10</option>
-                    <option value="4" className="bpmOption" >Official Bpm</option>
-                    <option value="5" className="bpmOption" >Official Bpm +10</option>
-                </select>
+                <div className="flex flex-col item-align-center">
+                    <input id="selectTempo" className="ml-8 w-20" defaultValue={Bpm} min="40" max="200" step="0.5" type="range"></input>
+                </div>
             </div>
         </>
-    );
+            
+        )
+    }
+    else if(session.state==="ready"){
+        return (
+            <>
+                <div className="playerCar">
+                    <div className="blockajouer">
+                    </div>
+                        <div className="blockajouerbg"></div>
+                        <div className="repaire"></div>
+                        <div id="content">
+                    </div>
+                </div>
+                <div className="playerOption">
+                    <i className="icon-fast-backward" onClick={next}></i>
+                    <i className="icon-primitive-square" onClick={reset}></i>
+                    <i className="icon-playback-play" onClick={start}></i>
+                    <i className="icon-playback-pause" onClick={() => {pause(intervalId)}}></i>
+                    <i className="icon-fast-forward" onClick={previous}></i>
+                    <div className="flex flex-col item-center">
+                        {/* <label>Bpm : {Bpm}</label> */}
+                        <Range Bpm={Bpm} setBpm={setBpm} tempoSelect={tempoSelect}/>
+                        {/* <input id="selectTempo" className="ml-8 w-20" onChange={tempoSelect} defaultValue={Bpm} min="40" max="200" step="0.5" type="range"></input> */}
+                    </div>
+                </div>
+            </>
+        );
+   }
 };
 
     // function next() {
