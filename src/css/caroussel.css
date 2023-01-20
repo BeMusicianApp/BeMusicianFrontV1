@@ -135,12 +135,12 @@ select{
 
 @media screen and (min-device-width : 320px) and (max-device-width : 480px) {
    .repaire{
-      width : 10px;
+      /* width : 10px;
       border-radius: 5px;
       background-color: rgb(170, 46, 46);
       margin-left: 398px;
       height : 270px;
       position : fixed;
-      z-index: 2;
+      z-index: 2; */
    }
 }
