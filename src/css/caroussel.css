@@ -66,8 +66,8 @@
 
 .playerOption{
    border-radius: 5px;
-   height : 50px;
-   width : 400px;
+   height : 90px;
+   width : 300px;
    display : flex;
    justify-content: center;
    align-items: center;
@@ -133,4 +133,14 @@ select{
    padding : 2px;
 }
 
-
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+   .repaire{
+      width : 10px;
+      border-radius: 5px;
+      background-color: rgb(170, 46, 46);
+      margin-left: 398px;
+      height : 270px;
+      position : fixed;
+      z-index: 2;
+   }
+}

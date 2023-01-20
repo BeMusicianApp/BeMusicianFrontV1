@@ -4,30 +4,33 @@ import "../css/search.css";
 import { getAllMusique } from "../api/backend/musique";
 import { useNavigate } from "react-router-dom";
 import { URL_PLAYER } from "../constants/urls/urlFrontEnd";
+import pause from "../Components/player/playerFunctions/pause"
 
 const GuitareScreen = () => {
+
     const [loader, setLoader] = useState({state : false})
     const navigate = useNavigate()
     const [musiqueList, setMusiqueListe] = useState([]);
+    let intervalId = sessionStorage.getItem("intervalId")
     useEffect(() =>{
         const fetchData = async () => {
            const musiqueData = await getAllMusique()
                setMusiqueListe(
                    musiqueData.data,
                )
-               console.log(musiqueData)
              setLoader({
                   state : true
               })
         }
         fetchData()
+        clearInterval(intervalId)
     }, []);
 
-    console.log(process.env)
+
+
     function goToPlay(musicSelected){
         sessionStorage.setItem("musicSelected", musicSelected.Id_musique)
         sessionStorage.setItem("musicSelectedInfo", [musicSelected.artiste,musicSelected.titre])
-        console.log("musicselect",musicSelected.Id_musique)
         navigate(URL_PLAYER, musicSelected.Id_musique)
     }
     //todo tmusique sur le onClick et importe le authprovider
@@ -42,7 +45,7 @@ if(loader.state === true){
 
     return (
             <>
-            <div className="grid grid-cols-5">
+            <div className="grid grid-cols-2 sm:grid-cols-5">
 
             {musiqueList?.map((item) =>{
                 return(

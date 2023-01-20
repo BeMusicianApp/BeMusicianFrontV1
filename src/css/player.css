@@ -1,15 +1,12 @@
 .playerMain{
-    /* background-color: #202327 ; */
     color : white;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 20px;
-    /* cursor : none; */
 } 
 .playerSecond{
-    /* background-color: #202327 ; */
-    width : 1280px;
+    width : 100%;
     margin : 0px;
     height : 40px;
     color : rgba(255,189,0,1);
@@ -48,8 +45,6 @@
     background: rgb(227, 110, 0);
     border: 1px solid rgb(200, 97, 0);
   }
-  
-  
   
   @keyframes Anim2 {
     0%{

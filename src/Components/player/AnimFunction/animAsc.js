@@ -1,10 +1,10 @@
 export function animAB(image){
     image.animate([
         { transform: 'translate(0px)' },
-        { transform: 'translate(-360px)' },
-        { transform: 'translate(-360px)' },
+        { transform: 'translate(-25%)' },
+        { transform: 'translate(-25%)' },
     ], 1500);
-    image.style.transform = 'translate(-360px)';
+    image.style.transform = 'translate(-25%)';
     image.style.opacity = '1'
     image.style.transition = 'opacity 1s'
 };

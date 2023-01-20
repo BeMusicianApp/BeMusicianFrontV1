@@ -5,7 +5,7 @@ import { getMusiqueToPlay, getOneMusique } from "../api/backend/musique";
 import { animAB, animBC, animCD } from "./player/AnimFunction/animAsc";
 import { animDC, animCB,animBA } from './player/AnimFunction/animDesc';
 import { resetAnim } from "./player/playerFunctions/reset";
-//import { pause } from "./player/playerFunctions/pause";
+import { pauseOnload } from "./player/playerFunctions/pause";
 import { decompteAnim } from "./player/playerFunctions/decompte";
 import { useDispatch, useSelector } from 'react-redux';
 import { nextAnim } from "./player/playerFunctions/next";
@@ -20,9 +20,8 @@ export function Caroussel() {
     const MusiqueSelected = sessionStorage.getItem("musicSelected");
     const [session, setSession] = useState({ state: 'loading' });
     let [Bpm, setBpm] = useState(0);
-
+    let intervalId = sessionStorage.getItem("intervalId")
     let counterAB = 0
-    console.log(Bpm)
     useEffect(() => {
         const fetchData = async () => {
             const data = await getMusiqueToPlay(MusiqueSelected)
@@ -31,7 +30,6 @@ export function Caroussel() {
             return dataAll
         }
         fetchData().then(data => {
-            console.log(data.data.data)
             const tabAcc = [];
             data.data.data.forEach((item, index) => {
                 let AccordCharger = document.createElement('img');
@@ -49,11 +47,9 @@ export function Caroussel() {
         })
     }, []);
 
-    let intervalId = null;
-
+    
     const tempoSelect = (e) =>{
         const selectedBpm = e.target.value;
-        console.log(selectedBpm);
         Bpm=selectedBpm;
         pause(intervalId)
         startPlay=false
@@ -62,19 +58,28 @@ export function Caroussel() {
 
     let startPlay = false
     const start = () => {
+        intervalId = sessionStorage.getItem('intervalId');
         if(startPlay==false){
-           
-            const tempo = Math.round(60000/Bpm)
-            console.log(tempo)
-            intervalId = setInterval(function(){play()},tempo);
-            startPlay=true
+            if(intervalId=="null"){
+                const tempo = Math.round(60000/Bpm);
+                intervalId = setInterval(play,tempo);
+                sessionStorage.setItem("intervalId", intervalId)
+                startPlay=true;
+            }else{
+                pause()
+                const tempo = Math.round(60000/Bpm);
+                intervalId = setInterval(play,tempo);
+                sessionStorage.setItem("intervalId", intervalId)
+                startPlay=true;
+            }
         }
     }
 
     let mesure = 17
     function play(){
-        console.log(mesure)
         mesure--
+        intervalId = sessionStorage.getItem("intervalId")
+        console.log("play")
         if(mesure>1){
             if(mesure%4==0){
                 if (counterAB === 0){
@@ -149,17 +154,16 @@ export function Caroussel() {
 
     function pause(){
         clearInterval(intervalId);
-        console.log("startPlay",startPlay)
-        startPlay=false
+        startPlay=false;
         intervalId = null;
         sessionStorage.setItem("intervalId", intervalId)
     }
 
-    console.log(session.state)
     if(session.state==="loading"){
         return (
             <>
             <div className="playerCar">
+            
                 <div className="blockajouer">
                 </div>
                     <div className="blockajouerbg"></div>
@@ -192,17 +196,17 @@ export function Caroussel() {
                         <div id="content">
                     </div>
                 </div>
-                <div className="playerOption">
-                    <i className="icon-fast-backward" onClick={next}></i>
-                    <i className="icon-primitive-square" onClick={reset}></i>
-                    <i className="icon-playback-play" onClick={start}></i>
-                    <i className="icon-playback-pause" onClick={() => {pause(intervalId)}}></i>
-                    <i className="icon-fast-forward" onClick={previous}></i>
-                    <div className="flex flex-col item-center">
+                <div className="playerOption flex-col">
+                    <div className="h-8 mb-2">
+                        <i className="icon-fast-backward" onClick={next}></i>
+                        <i className="icon-primitive-square" onClick={reset}></i>
+                        <i className="icon-playback-play" onClick={start}></i>
+                        <i className="icon-playback-pause" onClick={() => {pause(intervalId)}}></i>
+                        <i className="icon-fast-forward" onClick={previous}></i>
+                    </div>
                         {/* <label>Bpm : {Bpm}</label> */}
                         <Range Bpm={Bpm} setBpm={setBpm} tempoSelect={tempoSelect}/>
                         {/* <input id="selectTempo" className="ml-8 w-20" onChange={tempoSelect} defaultValue={Bpm} min="40" max="200" step="0.5" type="range"></input> */}
-                    </div>
                 </div>
             </>
         );
