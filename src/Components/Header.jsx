@@ -17,15 +17,11 @@ const Header = () => {
 
     return (
             <div className="navigation">
-                    <nav className="contentLogo">
-                  
-                        <Link to={URL.URL_HOME} className="logo"> <img id="logoHeader" src={process.env.PUBLIC_URL + '/img/site/logosquarewhite.png'}></img></Link>
-             
-                        </nav>
-                        <nav className="mainNav">
-                  
-                            <Link to={URL.URL_GUITARE}  id="musiqueChoice"><div className="navitem"><i className="icon-note-beamed"></i></div></Link>
-                       
+                    <div className="contentLogo">
+                        <Link to={URL.URL_HOME}> <img id="logoHeader" src={process.env.PUBLIC_URL + '/img/site/logosquarewhite.png'}></img></Link>          
+                    </div>
+                        <div className="mainNav">                  
+                            <Link to={URL.URL_GUITARE}  id="musiqueChoice"><div className="navitem"><i className="icon-note-beamed"></i></div></Link>                       
                             {/* <Link to={URL.URL_PROFILE} className="navitem" id="profil"><i className="icon-user"></i></Link>               
                  
                             <Link to={URL.URL_CREATION} className="navitem" id="create"><i className="icon-plus"></i></Link>                */}
@@ -34,7 +30,7 @@ const Header = () => {
                                          
                             {/* <Link to={URL.URL_LOGIN} className="navitem" id="logout"><i className="icon-sign-out" onClick={popUpLogOut}></i></Link>                */}
                    
-                  </nav>       
+                        </div>       
             </div>
     );
 };

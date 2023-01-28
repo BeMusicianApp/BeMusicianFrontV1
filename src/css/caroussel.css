@@ -70,6 +70,7 @@
    width : 300px;
    display : flex;
    justify-content: center;
+   flex-direction: column;
    align-items: center;
    background-color: rgb(204, 204, 204);
    -webkit-box-shadow: 0px 0px 10px 5px #555454; 
@@ -82,11 +83,26 @@
    margin-top: 8px;
    font-size: 35px;
 }
- 
+.playerOption .itemPlayer{
+   margin: 0px;
+   color: black;
+   margin-top: 8px;
+   font-size: 35px;
+}
+.itemPlayer input[type="checkbox"]{
+   display: none;
+}
+.itemPlayer input[type="checkbox"] + label {
+   background-color :rgb(204, 204, 204);
+   color:blue;
+}
+.itemPlayer input[type="checkbox"]:checked + label{
+   background-color :rgb(204, 204, 204);
+}
+
 .playerOption i:hover{
    color : rgb(116, 116, 116);
    text-shadow: none;
- 
 }
 
 .playerOption i:active{
@@ -133,14 +149,46 @@ select{
    padding : 2px;
 }
 
-@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
-   .repaire{
-      /* width : 10px;
-      border-radius: 5px;
-      background-color: rgb(170, 46, 46);
-      margin-left: 398px;
-      height : 270px;
+@media screen and (min-width : 320px) and (max-width : 480px) {
+   .playerCar {
+      height : 250px;
+      width : 320px;
+      overflow : hidden;
+  }
+
+  .imgcar{
       position : fixed;
-      z-index: 2; */
+      margin-left :480px;
+      height : auto;
+      width : 150px;
+      border-radius: 10px;
+      z-index : 1;
+      opacity : 0;
+   } 
+
+   .blockajouer{
+      height : 213px;
+      width : 150px;
+      margin-top: 10px;
+      position : fixed;
+      z-index: 3;
+      margin-left: 0px;
+      border : 5px solid rgb(255, 189, 0);
+      border-radius: 5px;
+      -webkit-box-shadow: 0px 0px 10px 5px #555454; 
+      box-shadow: 0px 0px 10px 5px #555454;
+   }
+   
+   #content{
+      width: 640px;
+      height : 250px;
+      margin-top: 10px;
+   }
+
+   .repaire{
+      margin-left: 160px;
+      height : 233px;
+      position : fixed;
+      z-index: 2;
    }
 }

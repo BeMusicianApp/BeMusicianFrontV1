@@ -28,7 +28,7 @@ apiBackEnd.interceptors.request.use((request) => {
  */
 apiBackEnd.interceptors.response.use(
     (response) => {
-        console.log(response.status);
+        // console.log(response.status);
         return response;
     },
     (error) => {

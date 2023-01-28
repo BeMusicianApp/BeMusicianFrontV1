@@ -13,7 +13,7 @@ const Range = ({Bpm, setBpm, tempoSelect}) => {
     return (
     <div className="flex flex-col item-center w-60">
         <label className="text-black text-center font-bold w-60">BpmOff : {Bpm} BpmPlay : {LocalBpm}</label>
-        <input id="selectTempo" className="" onChange={tempoSelectLocal} defaultValue={Bpm} min="40" max="200" step="0.5" type="range"></input>
+        <input id="selectTempo" className="" onChange={tempoSelectLocal} defaultValue={Bpm} min="40" max="170" step="0.5" type="range"></input>
     </div>
     )
 }
